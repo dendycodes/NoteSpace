@@ -34,7 +34,7 @@ export default function Main() {
       },
       onCancel() {
         console.log("Cancel");
-      },
+      }
     });
   }
 
@@ -51,16 +51,16 @@ export default function Main() {
       },
       onCancel() {
         console.log("Cancel");
-      },
+      }
     });
   }
 
   const picker = new EmojiButton({
     theme: "dark",
     styleProperties: {
-      "--category-button-active-color": "#3cb371",
+      "--category-button-active-color": "#3cb371"
     },
-    position: "bottom-start",
+    position: "bottom-start"
   });
 
   const openNotificationSuccess = () => {
@@ -71,8 +71,8 @@ export default function Main() {
       bottom: 50,
 
       style: {
-        width: 340,
-      },
+        width: 340
+      }
     });
   };
   console.log(items);
@@ -85,8 +85,8 @@ export default function Main() {
       bottom: 50,
 
       style: {
-        width: 300,
-      },
+        width: 300
+      }
     });
   };
 
@@ -99,8 +99,8 @@ export default function Main() {
       bottom: 50,
 
       style: {
-        width: 300,
-      },
+        width: 300
+      }
     });
   };
 
@@ -112,20 +112,20 @@ export default function Main() {
       bottom: 50,
 
       style: {
-        width: 340,
-      },
+        width: 340
+      }
     });
   };
 
   const deleteList = () => {
     axios
       .delete(
-        `https://notespacebulgaria.herokuapp.com/api/delete_list/${content.listID}`,
+        `https://notespaceapi.herokuapp.com/api/delete_list/${content.listID}`,
 
         {
           headers: {
-            Authorization: token,
-          },
+            Authorization: token
+          }
         }
       )
       .then((res) => {
@@ -142,12 +142,12 @@ export default function Main() {
     setLocalstate(content);
     axios
       .get(
-        `https://notespacebulgaria.herokuapp.com/api/items/${content.listID}`,
+        `https://notespaceapi.herokuapp.com/api/items/${content.listID}`,
 
         {
           headers: {
-            Authorization: token,
-          },
+            Authorization: token
+          }
         }
       )
       .then((res) => {
@@ -163,13 +163,13 @@ export default function Main() {
     setLoadingnew(true);
     axios
       .post(
-        "https://notespacebulgaria.herokuapp.com/api/additem",
+        "https://notespaceapi.herokuapp.com/api/additem",
         {
           text: " 📌 new item",
-          listID: listID,
+          listID: listID
         },
         {
-          headers: { Authorization: token },
+          headers: { Authorization: token }
         }
       )
       .then((res) => {
@@ -185,12 +185,12 @@ export default function Main() {
   const deleteListItem = (itemID) => {
     axios
       .delete(
-        "https://notespacebulgaria.herokuapp.com/api/delete_item/" + itemID,
+        "https://notespaceapi.herokuapp.com/api/delete_item/" + itemID,
 
         {
           headers: {
-            Authorization: token,
-          },
+            Authorization: token
+          }
         }
       )
       .then((res) => {
@@ -205,14 +205,14 @@ export default function Main() {
   const updateItem = (itemID) => {
     axios
       .patch(
-        "https://notespacebulgaria.herokuapp.com/api/update_item/" + itemID,
+        "https://notespaceapi.herokuapp.com/api/update_item/" + itemID,
 
         { text: document.getElementById("item" + itemID).value },
 
         {
           headers: {
-            Authorization: token,
-          },
+            Authorization: token
+          }
         }
       )
       .then((res) => {
@@ -227,7 +227,7 @@ export default function Main() {
   picker.on("emoji", (selection) => {
     setContent({
       ...content,
-      emoji: selection.emoji,
+      emoji: selection.emoji
     });
   });
 
@@ -259,7 +259,7 @@ export default function Main() {
                   setLocalstate({
                     emoji: content.emoji,
                     listID: content.listID,
-                    title: e.target.value,
+                    title: e.target.value
                   });
                   setEdit("");
                 }}

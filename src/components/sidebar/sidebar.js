@@ -20,22 +20,22 @@ export default function Sidebar() {
       bottom: 50,
 
       style: {
-        width: 300,
-      },
+        width: 300
+      }
     });
   };
 
   useEffect(() => {
     axios
       .patch(
-        `https://notespacebulgaria.herokuapp.com/api/update_title/${listidstate.listID}`,
+        `https://notespaceapi.herokuapp.com/api/update_title/${listidstate.listID}`,
 
         { title: listidstate.title, emoji: listidstate.emoji },
 
         {
           headers: {
-            Authorization: token,
-          },
+            Authorization: token
+          }
         }
       )
       .then((res) => {
@@ -49,12 +49,12 @@ export default function Sidebar() {
   useEffect(() => {
     axios
       .get(
-        `https://notespacebulgaria.herokuapp.com/api/lists/${decoded_token._id}`,
+        `https://notespaceapi.herokuapp.com/api/lists/${decoded_token._id}`,
 
         {
           headers: {
-            Authorization: token,
-          },
+            Authorization: token
+          }
         }
       )
       .then((res) => {
@@ -68,14 +68,14 @@ export default function Sidebar() {
   const addList = () => {
     axios
       .post(
-        "https://notespacebulgaria.herokuapp.com/api/newlist",
+        "https://notespaceapi.herokuapp.com/api/newlist",
         {
           emoji: "💡",
           title: "New list",
-          ownerID: decoded_token._id,
+          ownerID: decoded_token._id
         },
         {
-          headers: { Authorization: token },
+          headers: { Authorization: token }
         }
       )
       .then((res) => {
@@ -106,7 +106,7 @@ export default function Sidebar() {
                 setListidstate({
                   listID: list._id,
                   title: list.title,
-                  emoji: list.emoji,
+                  emoji: list.emoji
                 });
               }}
             >
