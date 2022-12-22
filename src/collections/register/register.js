@@ -46,7 +46,7 @@ export default function Register() {
 
     if (profile.password === profile.cpassword) {
       axios
-        .post("https://git.heroku.com/notespaceapi.git/api/user/register", {
+        .post("https://notespaceapi.herokuapp.com/api/user/register", {
           username: profile.username,
           email: profile.email,
           password: profile.password

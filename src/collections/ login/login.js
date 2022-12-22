@@ -19,7 +19,7 @@ export default function Login() {
     localStorage.clear();
 
     axios
-      .post("https://git.heroku.com/notespaceapi.git/api/user/login", {
+      .post("https://notespaceapi.herokuapp.com/api/user/login", {
         email: profile.email,
         password: profile.password
       })
