@@ -7,7 +7,7 @@ import axios from "axios";
 export default function Login() {
   const [psw, setPsw] = useState({
     type: "password",
-    link: "https://img.icons8.com/ios-glyphs/20/000000/invisible.png",
+    link: "https://img.icons8.com/ios-glyphs/20/000000/invisible.png"
   });
 
   const [profile, setProfile] = useState({});
@@ -19,9 +19,9 @@ export default function Login() {
     localStorage.clear();
 
     axios
-      .post("https://notespacebulgaria.herokuapp.com/api/user/login", {
+      .post("https://git.heroku.com/notespaceapi.git/api/user/login", {
         email: profile.email,
-        password: profile.password,
+        password: profile.password
       })
       .then((res) => {
         localStorage.setItem("authtoken", res.data);
@@ -38,7 +38,7 @@ export default function Login() {
 
     setProfile((prevProfile) => ({
       ...prevProfile,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -46,14 +46,14 @@ export default function Login() {
     if (psw.type === "password") {
       setPsw({
         type: "text",
-        link: "https://img.icons8.com/ios-glyphs/20/000000/visible.png",
+        link: "https://img.icons8.com/ios-glyphs/20/000000/visible.png"
       });
     }
 
     if (psw.type === "text") {
       setPsw({
         type: "password",
-        link: "https://img.icons8.com/ios-glyphs/20/000000/invisible.png",
+        link: "https://img.icons8.com/ios-glyphs/20/000000/invisible.png"
       });
     }
   }

@@ -10,7 +10,7 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const [psw, setPsw] = useState({
     type: "password",
-    link: "https://img.icons8.com/ios-glyphs/20/000000/invisible.png",
+    link: "https://img.icons8.com/ios-glyphs/20/000000/invisible.png"
   });
 
   const [profile, setProfile] = useState({});
@@ -20,7 +20,7 @@ export default function Register() {
 
     setProfile((prevProfile) => ({
       ...prevProfile,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -28,14 +28,14 @@ export default function Register() {
     if (psw.type === "password") {
       setPsw({
         type: "text",
-        link: "https://img.icons8.com/ios-glyphs/20/000000/visible.png",
+        link: "https://img.icons8.com/ios-glyphs/20/000000/visible.png"
       });
     }
 
     if (psw.type === "text") {
       setPsw({
         type: "password",
-        link: "https://img.icons8.com/ios-glyphs/20/000000/invisible.png",
+        link: "https://img.icons8.com/ios-glyphs/20/000000/invisible.png"
       });
     }
   }
@@ -46,10 +46,10 @@ export default function Register() {
 
     if (profile.password === profile.cpassword) {
       axios
-        .post("https://notespacebulgaria.herokuapp.com/api/user/register", {
+        .post("https://git.heroku.com/notespaceapi.git/api/user/register", {
           username: profile.username,
           email: profile.email,
-          password: profile.password,
+          password: profile.password
         })
         .then((res) => {
           setLoading(false);
